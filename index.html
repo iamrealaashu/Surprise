@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#120b1b">
+  <title>For Nobita — Written in the Stars</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body><canvas id="sky"></canvas>
+  <div id="gate">
+    <div class="gate">
+      <div class="moon"></div>
+      <div class="eyebrow">a little universe, made just for you</div>
+      <h1 class="serif">Dear <em>Nobita</em></h1>
+      <p>Some people make the world feel a little more beautiful just by being in it. This little corner is for you.</p>
+      <button class="primary" id="enter">Step into your little universe ✦</button>
+    </div>
+  </div>
+  <nav>
+    <div class="logo">for Nobita <span>✦</span></div><small>A LITTLE COLLECTION OF LOVELY MOMENTS</small>
+  </nav>
+  <main>
+    <section class="hero reveal">
+      <div>
+        <div class="eyebrow">if stars could keep memories</div>
+        <h1 class="serif">A whole sky<br>full of <em>you.</em></h1>
+        <p>Not every beautiful thing needs a reason. Some things deserve to be celebrated simply because they exist —
+          and you are one of them, Nobita.</p><button class="outline"
+          onclick="document.querySelector('#portrait').scrollIntoView({behavior:'smooth'})">Explore your universe
+          ↓</button>
+        <div class="scroll">made of stardust & a little thoughtfulness</div>
+      </div>
+    </section>
+    <section id="portrait">
+      <div class="feature">
+        <div class="portrait reveal"><img src="assets/nobita-03.webp" alt="Nobita smiling on a sunny rooftop"></div>
+        <div class="copy reveal">
+          <div class="eyebrow">the girl in the purple sky</div>
+          <h2 class="serif">Some moments<br>just feel like <em>magic.</em></h2>
+          <p>There is something lovely about the way a simple moment can become a favourite memory. The sunshine, the
+            open sky, that beautiful purple — a frame worth keeping close.</p>
+          <div style="color:#f3d7a1">✧ A little reminder that you are wonderful</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="orbit" class="orbit-section">
+      <div class="head reveal">
+        <div class="eyebrow">little memories, floating close</div>
+        <h2 class="serif">A little <em style="color:var(--pink)">constellation</em> of you</h2>
+        <p>Tap a memory to bring it closer. Each frame is a little reminder of how lovely an ordinary moment can be.</p>
+      </div>
+      <div class="orbit-stage reveal" id="orbitStage" aria-label="Interactive floating photo memories">
+        <div class="orbit-glow"></div>
+        <div class="orbit-ring ring-one"></div>
+        <div class="orbit-ring ring-two"></div>
+        <div class="orbit-center"><span>✦</span><small>NOBITA</small></div>
+        <button class="memory-card memory-one" data-photo="assets/nobita-01.webp"
+          data-caption="Sunshine kind of day"><img src="assets/nobita-01.webp"
+            alt="Nobita in the sunshine"><span>sunshine days</span></button>
+        <button class="memory-card memory-two" data-photo="assets/nobita-02.webp"
+          data-caption="Quiet little happiness"><img src="assets/nobita-02.webp"
+            alt="Nobita smiling softly"><span>little happiness</span></button>
+        <button class="memory-card memory-three" data-photo="assets/nobita-03.webp" data-caption="A lovely view"><img
+            src="assets/nobita-03.webp" alt="Nobita looking back"><span>a lovely view</span></button>
+        <button class="memory-card memory-four" data-photo="assets/nobita-04.webp"
+          data-caption="Elegance in a moment"><img src="assets/nobita-04.webp"
+            alt="Nobita with her purple dupatta"><span>purple memories</span></button>
+        <button class="memory-card memory-five" data-photo="assets/nobita-05.webp"
+          data-caption="Simply, beautifully you"><img src="assets/nobita-05.webp"
+            alt="Nobita sitting on a staircase"><span>simply you</span></button>
+      </div>
+      <p class="orbit-hint">✧ &nbsp; Move your pointer around · Tap any photo</p>
+    </section>
+    <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lightbox-close" id="lightboxClose"
+        aria-label="Close photo">×</button>
+      <div class="lightbox-frame"><img id="lightboxImage" src="" alt="Selected memory">
+        <p id="lightboxCaption"></p>
+      </div>
+    </div>
+    <section>
+      <div class="head reveal">
+        <div class="eyebrow">little moments, big smiles</div>
+        <h2 class="serif">The Nobita <em style="color:var(--pink)">collection</em></h2>
+        <p>Five frames from a day painted in sunshine and purple. Every picture has its own little story.</p>
+      </div>
+      <div class="gallery">
+        <figure class="shot reveal"><img src="assets/nobita-01.webp" alt="Nobita in purple in the sunshine">
+          <figcaption>Sunshine kind of day</figcaption>
+        </figure>
+        <figure class="shot reveal"><img src="assets/nobita-02.webp" alt="Nobita smiling softly">
+          <figcaption>Quiet little happiness</figcaption>
+        </figure>
+        <figure class="shot reveal"><img src="assets/nobita-03.webp" alt="Nobita looking back with a smile">
+          <figcaption>A lovely view</figcaption>
+        </figure>
+        <figure class="shot reveal"><img src="assets/nobita-04.webp" alt="Nobita with long hair and purple dupatta">
+          <figcaption>Elegance in a moment</figcaption>
+        </figure>
+        <figure class="shot reveal"><img src="assets/nobita-05.webp" alt="Nobita sitting on a staircase">
+          <figcaption>Simply, beautifully you</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section>
+      <div class="head reveal">
+        <div class="eyebrow">a note, just for you</div>
+        <h2 class="serif">Words from the <em style="color:var(--pink)">heart</em></h2>
+      </div>
+      <article class="note reveal">
+        <div class="eyebrow" style="color:#a65c8b">Dear Nobita,</div>
+        <h2 class="serif">You are a beautiful surprise.</h2>
+        <p>Some people have a way of making an ordinary day feel a little brighter without even trying. Maybe it is a
+          smile, a small gesture, or simply the way they are.</p>
+        <p>I made this little space because you deserve to be reminded that you are appreciated. I hope these pictures
+          bring a smile to your face, and I hope life keeps giving you countless reasons to smile.</p>
+        <p>Stay just the way you are — wonderfully, unmistakably you.</p>
+        <div class="sign">With warmth, always ♡</div>
+      </article>
+    </section>
+
+    <section class="secret-section reveal" id="secret-note">
+      <div class="head">
+        <div class="eyebrow">a little something from me</div>
+        <h2 class="serif">One last <em style="color:var(--pink)">surprise...</em></h2>
+        <p>There are some things that are easier to write than say. This one is just for you.</p>
+      </div>
+      <div class="envelope-wrap">
+        <div class="envelope" id="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-paper"><span>For Nobita ♡</span></div>
+          <div class="envelope-front"><span>♡</span></div>
+        </div>
+        <button class="primary open-letter" id="openLetter">Open your letter ✉</button>
+        <p class="envelope-hint">A message, written especially for you</p>
+      </div>
+    </section>
+    <div class="letter-modal" id="letterModal" aria-hidden="true">
+      <div class="letter-modal-card">
+        <button class="letter-close" id="closeLetter" aria-label="Close letter">×</button>
+        <div class="eyebrow" style="color:#a65c8b">just for you, Nobita</div>
+        <h2 class="serif">Tum humesha khush raho. ♡</h2>
+        <div class="personal-message">
+          <p>Tum humesha khush raho.</p>
+          <p>Tum soch rahi hogi itna lamba message kya hai aur kyu likh rahe hai but man kiya.</p>
+          <p>Hum bhut pareshan karte hai tumko ajeeb harkat bhi karte hai.</p>
+          <p>Time lagega change hone ho jayege</p>
+          <p>Sorry ab tak itna pareshan karne ke liye.</p>
+          <p>Aaj se jaisa tum chahogi waisa hoga</p>
+          <p>Hum humesha tumhare sath rehna chahte hai.</p>
+          <p>Hum kabhi tumko khona nhi chahte hai.</p>
+          <p>Tumko humesha khush rakhne ka kosis karege.</p>
+          <p>Aur iske badle humko kuch nhi chahiye.</p>
+          <p>Bas tum humesha khush raho.</p>
+          <p>Mera hisse ka khushi tumko mile.</p>
+          <p>Hum pura bhut mehant karege ki capable ho jaye.</p>
+          <p class="message-last">You are most important and special to me. ♡</p>
+        </div>
+        <div class="signature">With warmth, always ✦</div>
+      </div>
+    </div>
+
+    <section class="closing reveal">
+      <div class="eyebrow">before you go...</div>
+      <div class="heart">♡</div>
+      <h2 class="serif">Keep shining,<br><em>Nobita.</em></h2>
+      <p>May your days be soft, your dreams be big,<br>and your reasons to smile be endless.</p>
+      <div class="forever">Written in the stars ✦</div>
+    </section>
+  </main>
+  <footer>A little universe made with care, just for Nobita ♡</footer>
+  <div class="music"><button id="music" aria-label="Play or pause background music">♫</button></div><audio id="song"
+    src="music.mp3" loop preload="none"></audio>
+  <script src="script.js" defer></script>
+</body>
+
+</html>
