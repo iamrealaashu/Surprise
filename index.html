@@ -76,6 +76,18 @@
         <button class="memory-card memory-five" data-photo="assets/nobita-05.webp"
           data-caption="Simply, beautifully you"><img src="assets/nobita-05.webp"
             alt="Nobita sitting on a staircase"><span>simply you</span></button>
+        <button class="memory-card memory-six" data-photo="assets/nobita-06.webp"
+          data-caption="A little sparkle"><img src="assets/nobita-06.webp"
+            alt="Nobita with a sparkling smile"><span>little sparkle</span></button>
+        <button class="memory-card memory-seven" data-photo="assets/nobita-07.webp"
+          data-caption="Soft smiles and sunlight"><img src="assets/nobita-07.webp"
+            alt="Nobita smiling in the light"><span>soft smiles</span></button>
+        <button class="memory-card memory-eight" data-photo="assets/nobita-08.webp"
+          data-caption="Sunset glow"><img src="assets/nobita-08.webp"
+            alt="Nobita glowing in warm light"><span>sunset glow</span></button>
+        <button class="memory-card memory-nine" data-photo="assets/nobita-09.webp"
+          data-caption="Quiet confidence"><img src="assets/nobita-09.webp"
+            alt="Nobita in a reflective pose"><span>quiet confidence</span></button>
       </div>
       <p class="orbit-hint">✧ &nbsp; Move your pointer around · Tap any photo</p>
     </section>
@@ -89,7 +101,7 @@
       <div class="head reveal">
         <div class="eyebrow">little moments, big smiles</div>
         <h2 class="serif">The Nobita <em style="color:var(--pink)">collection</em></h2>
-        <p>Five frames from a day painted in sunshine and purple. Every picture has its own little story.</p>
+        <p>Nine frames from a day painted in sunshine and purple. Every picture has its own little story.</p>
       </div>
       <div class="gallery">
         <figure class="shot reveal"><img src="assets/nobita-01.webp" alt="Nobita in purple in the sunshine">
@@ -107,8 +119,46 @@
         <figure class="shot reveal"><img src="assets/nobita-05.webp" alt="Nobita sitting on a staircase">
           <figcaption>Simply, beautifully you</figcaption>
         </figure>
+        <figure class="shot reveal"><img src="assets/nobita-06.webp" alt="Nobita with a sparkling smile">
+          <figcaption>A little sparkle</figcaption>
+        </figure>
+        <figure class="shot reveal"><img src="assets/nobita-07.webp" alt="Nobita smiling in the light">
+          <figcaption>Soft smiles and sunlight</figcaption>
+        </figure>
+        <figure class="shot reveal"><img src="assets/nobita-08.webp" alt="Nobita glowing in warm light">
+          <figcaption>Sunset glow</figcaption>
+        </figure>
+        <figure class="shot reveal"><img src="assets/nobita-09.webp" alt="Nobita in a reflective pose">
+          <figcaption>Quiet confidence</figcaption>
+        </figure>
       </div>
     </section>
+
+    <section class="reveal-showcase reveal">
+      <div class="reveal-panel">
+        <div class="reveal-image-wrap locked" data-password="2706">
+          <img src="assets/nobita-10.webp" alt="Nobita in a dreamy frame" onerror="this.src='assets/nobita-09.webp'; this.onerror='';">
+          <button class="unlock-button" type="button" aria-label="Unlock hidden photo">Unlock</button>
+        </div>
+        <div class="reveal-copy">
+          <div class="eyebrow">a hidden little sparkle</div>
+          <h2 class="serif">One more <em style="color:var(--pink)">dreamy</em> frame.</h2>
+          <p>Sometimes a single picture says everything a long message cannot. This one is a soft little reminder that you are the kind of beauty that lingers in the heart.</p>
+        </div>
+      </div>
+      <div class="unlock-modal" id="unlockModal" aria-hidden="true">
+        <div class="unlock-dialog" role="dialog" aria-modal="true" aria-labelledby="unlockTitle">
+          <h3 id="unlockTitle">Unlock the hidden photo</h3>
+          <p>Hint: My Phone Password</p>
+          <input id="unlockInput" type="password" maxlength="4" placeholder="Enter 4-digit code" aria-label="Password input">
+          <div class="unlock-actions">
+            <button type="button" class="unlock-submit">Unlock</button>
+            <button type="button" class="unlock-cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="head reveal">
         <div class="eyebrow">a note, just for you</div>
@@ -149,29 +199,31 @@
         <h2 class="serif">Tum humesha khush raho. ♡</h2>
         <div class="personal-message">
           <p>Tum humesha khush raho.</p>
-          <p>Tum soch rahi hogi itna lamba message kya hai aur kyu likh rahe hai but man kiya.</p>
+          <p>Tum soch rahi hogi itna lamba message kya hai aur kyu likh rahe hai itna karne ka kya jarurat hai but man kiya.</p>
           <p>Hum bhut pareshan karte hai tumko ajeeb harkat bhi karte hai.</p>
-          <p>Time lagega change hone ho jayege</p>
+          <p>Humesha gussa dilate rehte hai kuch na kuch bool kar ya kar ke.</p>
+          <p>Time lagega change hone mein but jayege ek na ek din</p>
           <p>Sorry ab tak itna pareshan karne ke liye.</p>
           <p>Aaj se jaisa tum chahogi waisa hoga</p>
-          <p>Hum humesha tumhare sath rehna chahte hai.</p>
+          <p>Har bar aisa bool kar fir wahi same kaam karte hai.</p>
+          <p>Hum humesha issi sab chiz se darte rehte hai ki tum ko kho na de.</p>
           <p>Hum kabhi tumko khona nhi chahte hai.</p>
-          <p>Tumko humesha khush rakhne ka kosis karege.</p>
+          <p>Hum humesha tumko khush dekhna chahte hai.</p>
           <p>Aur iske badle humko kuch nhi chahiye.</p>
           <p>Bas tum humesha khush raho.</p>
-          <p>Mera hisse ka khushi tumko mile.</p>
-          <p>Hum pura bhut mehant karege ki capable ho jaye.</p>
+          <p>Mera hisse ka khushi tumko mile aur tumhare hisse ka problem mere.</p>
+          <p>Hum pura aur bhut sara mehant karege capable hone ka.</p>
           <p class="message-last">You are most important and special to me. ♡</p>
         </div>
-        <div class="signature">With warmth, always ✦</div>
+        <div class="signature">With Mera Dil, always ✦</div>
       </div>
     </div>
 
     <section class="closing reveal">
       <div class="eyebrow">before you go...</div>
       <div class="heart">♡</div>
-      <h2 class="serif">Keep shining,<br><em>Nobita.</em></h2>
-      <p>May your days be soft, your dreams be big,<br>and your reasons to smile be endless.</p>
+      <h2 class="serif">Happy Diwali,<br><em>Nobita.</em></h2>
+      <p>Humesha khush raho,<br>and I want to be reasons of your smile.</p>
       <div class="forever">Written in the stars ✦</div>
     </section>
   </main>

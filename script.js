@@ -1,5 +1,79 @@
 document.getElementById('enter').onclick=()=>{document.getElementById('gate').classList.add('gone');window.scrollTo({top:0,behavior:'smooth'})};
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+
+const revealImage = document.querySelector('.reveal-image-wrap');
+const unlockModal = document.getElementById('unlockModal');
+const unlockInput = document.getElementById('unlockInput');
+const unlockSubmit = document.querySelector('.unlock-submit');
+const unlockCancel = document.querySelector('.unlock-cancel');
+
+if(revealImage){
+  const unlockButton = revealImage.querySelector('.unlock-button');
+
+  const openUnlockModal = () => {
+    if(!unlockModal) return;
+    unlockModal.classList.add('open');
+    unlockModal.setAttribute('aria-hidden','false');
+    if(unlockInput){
+      unlockInput.value = '';
+      setTimeout(() => unlockInput.focus(), 50);
+    }
+  };
+
+  const closeUnlockModal = () => {
+    if(!unlockModal) return;
+    unlockModal.classList.remove('open');
+    unlockModal.setAttribute('aria-hidden','true');
+    if(unlockInput) unlockInput.value = '';
+  };
+
+  const unlockPhoto = () => {
+    if(!unlockInput) return;
+    const enteredPassword = unlockInput.value.trim();
+    if(enteredPassword === '2706'){
+      revealImage.classList.remove('locked');
+      revealImage.classList.add('unlocked');
+      if(unlockButton) unlockButton.remove();
+      closeUnlockModal();
+      return;
+    }
+    unlockInput.value = '';
+    unlockInput.focus();
+    alert('Incorrect password. Try again.');
+  };
+
+  revealImage.addEventListener('click', (event) => {
+    if(revealImage.classList.contains('locked') && (!unlockButton || event.target === unlockButton || event.target === revealImage || event.target.tagName === 'IMG')){
+      openUnlockModal();
+    }
+  });
+
+  if(unlockButton){
+    unlockButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      openUnlockModal();
+    });
+  }
+
+  if(unlockSubmit){
+    unlockSubmit.addEventListener('click', unlockPhoto);
+  }
+
+  if(unlockCancel){
+    unlockCancel.addEventListener('click', closeUnlockModal);
+  }
+
+  if(unlockInput){
+    unlockInput.addEventListener('keydown', (event) => {
+      if(event.key === 'Enter') unlockPhoto();
+    });
+  }
+
+  unlockModal?.addEventListener('click', (event) => {
+    if(event.target === unlockModal) closeUnlockModal();
+  });
+}
+
 const song=document.getElementById('song'),btn=document.getElementById('music');
 
 song.addEventListener('error',()=>{
