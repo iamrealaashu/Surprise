@@ -27,6 +27,16 @@ if(revealImage){
     if(unlockInput) unlockInput.value = '';
   };
 
+  const openUnlockedViewer = () => {
+    if(!lightbox || !lbImage) return;
+    const img = revealImage.querySelector('img');
+    if(!img) return;
+    lbImage.src = img.currentSrc || img.src;
+    lbCaption.textContent = 'A dreamy little surprise';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden','false');
+  };
+
   const unlockPhoto = () => {
     if(!unlockInput) return;
     const enteredPassword = unlockInput.value.trim();
@@ -35,6 +45,7 @@ if(revealImage){
       revealImage.classList.add('unlocked');
       if(unlockButton) unlockButton.remove();
       closeUnlockModal();
+      openUnlockedViewer();
       return;
     }
     unlockInput.value = '';
@@ -45,6 +56,9 @@ if(revealImage){
   revealImage.addEventListener('click', (event) => {
     if(revealImage.classList.contains('locked') && (!unlockButton || event.target === unlockButton || event.target === revealImage || event.target.tagName === 'IMG')){
       openUnlockModal();
+    }
+    if(revealImage.classList.contains('unlocked') && (event.target === revealImage || event.target.tagName === 'IMG')){
+      openUnlockedViewer();
     }
   });
 
