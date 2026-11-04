@@ -40,7 +40,86 @@ if(stage && matchMedia('(hover:hover)').matches){stage.addEventListener('pointer
 // Open the sealed personal letter
 const envelopeEl=document.getElementById('envelope');
 const letterModal=document.getElementById('letterModal');
-function showLetter(){envelopeEl.classList.add('open');setTimeout(()=>{letterModal.classList.add('open');letterModal.setAttribute('aria-hidden','false')},450)}
+const letterParagraphs=[...document.querySelectorAll('.personal-message p')];
+const letterChime=document.getElementById('letterChime');
+
+function revealLetterText(){
+  letterParagraphs.forEach((paragraph,index)=>{
+    setTimeout(()=>paragraph.classList.add('show'), index * 120);
+  });
+}
+
+function sprinkleRosePetals(){
+  let container=document.getElementById('petalSprinkle');
+  if(!container){
+    container=document.createElement('div');
+    container.id='petalSprinkle';
+    container.className='petal-sprinkle';
+    document.body.appendChild(container);
+  }
+  container.innerHTML='';
+  const petalCount=26;
+  for(let i=0;i<petalCount;i++){
+    const petal=document.createElement('span');
+    petal.className='petal';
+    const x=45+Math.random()*18-9;
+    const y=38+Math.random()*20-10;
+    const driftX=(Math.random()*200)-100;
+    const driftY=110+Math.random()*180;
+    const spin=(Math.random()*960)-480;
+    const duration=1400+Math.random()*900;
+    petal.style.setProperty('--x', `${x}%`);
+    petal.style.setProperty('--y', `${y}%`);
+    petal.style.setProperty('--drift-x', `${driftX}px`);
+    petal.style.setProperty('--drift-y', `${driftY}px`);
+    petal.style.setProperty('--spin', `${spin}deg`);
+    petal.style.setProperty('--duration', `${duration}ms`);
+    container.appendChild(petal);
+  }
+  setTimeout(()=>{container.innerHTML='';},2200);
+}
+
+function spawnHeartTrail(x,y){
+  const trailContainer=document.getElementById('heartTrail') || (()=>{
+    const el=document.createElement('div');
+    el.id='heartTrail';
+    el.className='heart-trail';
+    document.body.appendChild(el);
+    return el;
+  })();
+  const heart=document.createElement('span');
+  heart.className='floating-heart';
+  heart.textContent='♡';
+  const size=12+Math.random()*18;
+  heart.style.setProperty('--x', `${x}px`);
+  heart.style.setProperty('--y', `${y}px`);
+  heart.style.setProperty('--size', `${size}px`);
+  heart.style.setProperty('--drift-x', `${(Math.random()*40)-20}px`);
+  heart.style.setProperty('--drift-y', `${-30-(Math.random()*90)}px`);
+  trailContainer.appendChild(heart);
+  setTimeout(()=>heart.remove(),1100);
+}
+
+let lastHeartTrail=0;
+addEventListener('pointermove',e=>{
+  const now=Date.now();
+  if(now-lastHeartTrail>45){
+    spawnHeartTrail(e.clientX,e.clientY);
+    lastHeartTrail=now;
+  }
+});
+
+function showLetter(){
+  envelopeEl.classList.add('open');
+  sprinkleRosePetals();
+  letterParagraphs.forEach(p=>p.classList.remove('show'));
+  revealLetterText();
+  if(letterChime){
+    letterChime.currentTime=0;
+    letterChime.play().catch(()=>{});
+  }
+  setTimeout(()=>{letterModal.classList.add('open');letterModal.setAttribute('aria-hidden','false')},450)
+}
 function hideLetter(){letterModal.classList.remove('open');letterModal.setAttribute('aria-hidden','true')}
 document.getElementById('openLetter').addEventListener('click',showLetter);
 envelopeEl.addEventListener('click',showLetter);
